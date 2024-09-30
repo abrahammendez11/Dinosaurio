@@ -54,14 +54,14 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="name" value="{{ __('Name') }}" />
+            <x-label for="name" value="{{ __('Nombre') }}" />
             <x-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" required autocomplete="name" />
             <x-input-error for="name" class="mt-2" />
         </div>
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="email" value="{{ __('Email') }}" />
+            <x-label for="email" value="{{ __('Correo') }}" />
             <x-input id="email" type="email" class="mt-1 block w-full" wire:model="state.email" required autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
 
@@ -84,30 +84,30 @@
 
         <!-- Escuela -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="Escuela" value="{{ __('Escuela') }}" />
-            <x-input id="Escuela" type="text" class="mt-1 block w-full" wire:model="state.Escuela" required autocomplete="Escuela" />
-            <x-input-error for="Escuela" class="mt-2" />
+            <x-label for="escuela" value="{{ __('Escuela') }}" />
+            <x-input id="escuela" type="text" class="mt-1 block w-full" wire:model="state.escuela" required autocomplete="escuela" />
+            <x-input-error for="escuela" class="mt-2" />
         </div>
 
         <!-- Caarera -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="Carrera" value="{{ __('Carrera') }}" />
-            <x-input id="Carrera" type="text" class="mt-1 block w-full" wire:model="state.Carrera" required autocomplete="Carrera" />
-            <x-input-error for="Carrera" class="mt-2" />
+            <x-label for="carrera" value="{{ __('Carrera') }}" />
+            <x-input id="carrera" type="text" class="mt-1 block w-full" wire:model="state.carrera" required autocomplete="carrera" />
+            <x-input-error for="carrera" class="mt-2" />
         </div>
 
         <!-- Grado -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="Grado" value="{{ __('Grado') }}" />
-            <x-input id="Grado" type="text" class="mt-1 block w-full" wire:model="state.Grado" required autocomplete="Grado" />
-            <x-input-error for="Grado" class="mt-2" />
+            <x-label for="grado" value="{{ __('Grado') }}" />
+            <x-input id="grado" type="text" class="mt-1 block w-full" wire:model="state.grado" required autocomplete="grado" />
+            <x-input-error for="grado" class="mt-2" />
         </div>
 
         <!-- Numero de Telefono -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="Numero_telefono" value="{{ __('Numero de Telefono') }}" />
-            <x-input id="Numero_telefono" type="text" class="mt-1 block w-full" wire:model="state.Numero_telefono" required autocomplete="Numero_telefono" />
-            <x-input-error for="Numero_telefono" class="mt-2" />
+            <x-label for="numeroTeleofono" value="{{ __('Numero de Telefono') }}" />
+            <x-input id="numeroTelefono" type="text" class="mt-1 block w-full" wire:model="state.numeroTelefono" required autocomplete="numeroTelefono" />
+            <x-input-error for="numeroTelefono" class="mt-2" />
         </div>
 
     </x-slot>

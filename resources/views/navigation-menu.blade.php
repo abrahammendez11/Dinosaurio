@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-purple-700 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,17 +6,19 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
+                        <img src="{{ asset('images/COSSIES_logo.png') }}" alt="Logo" class="block h-14 w-auto">
                     </a>
                 </div>
 
+
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex text-white">
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="text-white">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
             </div>
+
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
@@ -92,34 +94,40 @@
                             @endif
                         </x-slot>
 
+
                         <x-slot name="content">
                             <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
+                            <div class="block px-4 py-2 text-xs text-gray-800 mt-2">
                                 {{ __('Manage Account') }}
                             </div>
-
-                            <x-dropdown-link href="{{ route('profile.show') }}">
+                        
+                            <x-dropdown-link href="{{ route('profile.show') }}" class="hover:bg-gray-100 transition duration-200">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
-
+                        
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-dropdown-link href="{{ route('api-tokens.index') }}">
+                                <x-dropdown-link href="{{ route('api-tokens.index') }}" class="hover:bg-gray-100 transition duration-200">
                                     {{ __('API Tokens') }}
                                 </x-dropdown-link>
                             @endif
-
-                            <div class="border-t border-gray-200"></div>
-
+                        
+                            <!-- Línea dorada entre Profile y Log Out -->
+                            <div class="border-t border-yellow-500 my-2"></div>
+                        
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
-
+                        
                                 <x-dropdown-link href="{{ route('logout') }}"
-                                         @click.prevent="$root.submit();">
+                                                 @click.prevent="$root.submit();"
+                                                 class="text-red-600 hover:bg-red-100 transition duration-200">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
+                        
+
+
                     </x-dropdown>
                 </div>
             </div>
@@ -185,5 +193,5 @@
                
             </div>
         </div>
-    </div>
+    </div>
 </nav>

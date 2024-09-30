@@ -20,6 +20,7 @@ class ProfileInformationTest extends TestCase
 
         $this->assertEquals($user->name, $component->state['name']);
         $this->assertEquals($user->email, $component->state['email']);
+        $this->assertEquals($user->escuela, $component->state['escuela']);
     }
 
     public function test_profile_information_can_be_updated(): void
@@ -32,5 +33,6 @@ class ProfileInformationTest extends TestCase
 
         $this->assertEquals('Test Name', $user->fresh()->name);
         $this->assertEquals('test@example.com', $user->fresh()->email);
+        $this->assertEquals('',$user->fresh()->escuela);
     }
 }
