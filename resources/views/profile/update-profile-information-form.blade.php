@@ -1,10 +1,10 @@
 <x-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        {{ __('Informacion de Perfil') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        {{ __('Actualiza tu Informacion .') }}
     </x-slot>
 
     <x-slot name="form">
@@ -81,6 +81,35 @@
                 @endif
             @endif
         </div>
+
+        <!-- Escuela -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="Escuela" value="{{ __('Escuela') }}" />
+            <x-input id="Escuela" type="text" class="mt-1 block w-full" wire:model="state.Escuela" required autocomplete="Escuela" />
+            <x-input-error for="Escuela" class="mt-2" />
+        </div>
+
+        <!-- Caarera -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="Carrera" value="{{ __('Carrera') }}" />
+            <x-input id="Carrera" type="text" class="mt-1 block w-full" wire:model="state.Carrera" required autocomplete="Carrera" />
+            <x-input-error for="Carrera" class="mt-2" />
+        </div>
+
+        <!-- Grado -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="Grado" value="{{ __('Grado') }}" />
+            <x-input id="Grado" type="text" class="mt-1 block w-full" wire:model="state.Grado" required autocomplete="Grado" />
+            <x-input-error for="Grado" class="mt-2" />
+        </div>
+
+        <!-- Numero de Telefono -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="Numero_telefono" value="{{ __('Numero de Telefono') }}" />
+            <x-input id="Numero_telefono" type="text" class="mt-1 block w-full" wire:model="state.Numero_telefono" required autocomplete="Numero_telefono" />
+            <x-input-error for="Numero_telefono" class="mt-2" />
+        </div>
+
     </x-slot>
 
     <x-slot name="actions">

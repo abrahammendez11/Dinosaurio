@@ -9,13 +9,13 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+            {{ __('Pagina Principal') }}
+        </h2> 
     </x-slot>
 
     <div class="card-body">
 
-        <h4>Bienvenido . {{ auth()->user()->name }} </h4>
+        <h4>Nombre del alumno . {{ auth()->user()->name }} <button type="button" class="btn btn-warning"> <i class="bi bi-pencil-fill"> </i> </button> </h4>
     </div>
 
     <div class="input-group flex-nowrap ">
