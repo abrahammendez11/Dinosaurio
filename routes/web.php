@@ -2,12 +2,13 @@
 
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\PresentacionController;
-use Illuminate\Support\Facades\CancelacionController;
-use Illuminate\Support\Facades\EvasersocController;
-use Illuminate\Support\Facades\liberacionController;
-use Illuminate\Support\Facades\RepoactController;
-use Illuminate\Support\Facades\RepropresentController;
+use App\Http\Controllers\PresentacionController;
+use App\Http\Controllers\CancelacionController;
+use App\Http\Controllers\EvasersocController;
+use App\Http\Controllers\liberacionController;
+use App\Http\Controllers\RepoactController;
+use App\Http\Controllers\RepropresentController;
+
 
 
 Route::get('/', function () {
@@ -36,7 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/cancelacion', [CancelacionController::class, 'create'])->middleware(App::class)->name('cancelacion.create');
+    Route::get('/cancelacion', [CancelacionController::class, 'create'])->name('cancelacion.create');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
