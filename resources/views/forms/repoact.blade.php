@@ -15,47 +15,78 @@
     </head>
     <body>
 
-            <button id="ModifActivities" class="btn btn-warning" type="button" onclick="Editar info()"> 
-            <span class="bi bi-pencil-fill"></span> </button>
-            <button id="DeleteActivities" class="btn btn-danger" type="button" onclick="Eliminar info()"> 
-            <span class="bi bi-trash3"></span> </button>
+        <div class="p-4">
+            <div class="container mt-5">
+            <h2>REPORTE DE ACTIVIDADES</h2>
         
-        <div class="input-group flex-nowrap p-3">
-            <span class="input-group-text" id="addon-wrapping">Nombre</span>
-            <input type="text" class="form-control" placeholder="Nombre" aria-label="Name" aria-describedby="addon-wrapping">
-        </div>    
-        <div class="input-group flex-nowrap p-3">
-            <span class="input-group-text" id="addon-wrapping">Escuela</span>
-            <input type="text" class="form-control" placeholder="Escuela" aria-label="School" aria-describedby="addon-wrapping">
-        </div>    
-        <div class="input-group flex-nowrap p-3">
-            <span class="input-group-text" id="addon-wrapping">Carrera o Nivel</span>
-            <input type="text" class="form-control" placeholder="Carrera o Nivel" aria-label="Grade" aria-describedby="addon-wrapping">
-        </div>    
-        <div class="input-group flex-nowrap p-3">
-            <span class="input-group-text" id="addon-wrapping">Dependencia</span>
-            <input type="text" class="form-control" placeholder="Dependencia" aria-label="Dependence" aria-describedby="addon-wrapping">
-        </div>    
-        <div class="input-group flex-nowrap p-3">
-            <span class="input-group-text" id="addon-wrapping">Area de Adscripcion</span>
-            <input type="text" class="form-control" placeholder="Area Especifica de Adscripcion" aria-label="Area" aria-describedby="addon-wrapping">
-        </div>    
-        <div class="input-group flex-nowrap p-3">
-            <span class="input-group-text" id="addon-wrapping">Nombre del Programa</span>
-            <input type="text" class="form-control" placeholder="Programa" aria-label="Proyect" aria-describedby="addon-wrapping">
-        </div>    
-        <div class="input-group flex-nowrap p-3">
-            <span class="input-group-text" id="addon-wrapping">Numero de Horas Cubiertas</span>
-            <input type="text" class="form-control" placeholder="Horas Cubiertas" aria-label="Hours" aria-describedby="addon-wrapping">
-        </div>      
-        <div class="input-group flex-nowrap p-3">
-            <span class="input-group-text" id="addon-wrapping">Numero de Personas Beneficiadas</span>
-            <input type="text" class="form-control" placeholder="Personas Beneficiadas" aria-label="People" aria-describedby="addon-wrapping">
-        </div>    
-        <div class="input-group p-3">
-            <span class="input-group-text">Actividades Realizadas</span>
-            <textarea class="form-control" placeholder="Describir de Manera Cuantitativa las Actividades en el Servicio" aria-label=" Activities "></textarea>
-        </div>
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-6">
+                    <label for="name" class="form-label">NOMBRE DEL ALUMNO</label>
+                    <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="escuela" class="form-label">NOMBRE DE LA ESCUELA</label>
+                    <input type="text" class="form-control" id="escuela" value="{{ auth()->user()->escuela }}" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="carrera" class="form-label">CARRERA</label>
+                    <input type="text" class="form-control" id="carrera" value="{{ auth()->user()->carrera }}" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="grado" class="form-label">GRADO</label>
+                    <input type="text" class="form-control" id="grado" value="{{ auth()->user()->grado }}" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="nombreDependencia" class="form-label">DEPENDENCIA</label>
+                    <input type="text" class="form-control" id="nombreDependencia" value="{{-- {{ auth()->user()->name }} --}}" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="name" class="form-label">AREA DE ADSCRIPCION</label>
+                    <input type="text" class="form-control" id="name" value="{{-- {{ auth()->user()->name }} --}}" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="name" class="form-label">NOMBRE DEL PROGRAMA</label>
+                    <input type="text" class="form-control" id="name" value="{{-- {{ auth()->user()->name }} --}}" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="name" class="form-label">NUMERO DE HORAS CUBIERTAS</label>
+                    <input type="text" class="form-control" id="name" value="{{-- {{ auth()->user()->name }} --}}" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="name" class="form-label">NUMERO DE PERSONAS BENEFICIADAS</label>
+                    <input type="text" class="form-control" id="name" value="{{-- {{ auth()->user()->name }} --}}" required>
+                </div>
+
+                <div class="input-group p-3">
+                    <span class="input-group-text">Actividades Realizadas</span>
+                    <textarea class="form-control" placeholder="Describir de Manera Cuantitativa las Actividades en el Servicio" aria-label=" Activities "></textarea>
+                </div>
+
+
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <form action="Repoact" enctype="multipart/form-data" method="POST">
+                                @csrf
+                                <input type="text" name="nombre" placeholder="ingresa el nombre: ">
+                                <input type="file" name="imagen">
+                                <button style="background-color: #b347f1; color: white; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px;" type="submit">GUARDAR</button>
+                            </form>    
+                        </div>
+                    </div>  
+                </div>
+
+
+            </form>
+            </div>
         
     </body>
     </html>

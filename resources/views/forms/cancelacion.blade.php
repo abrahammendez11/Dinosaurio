@@ -14,13 +14,15 @@
         <title>Suspencion y Cancelacion</title>
     </head>
     <body>
-    
+      
+     
+
         <div class="p-4">
             <p>SUSPENCION O CANCELACION DE SERVICIO SOCIAL</p>
             <form class="row g-3 needs-validation" novalidate>
                 <div class="col-md-6">
                   <label for="validationCustom01" class="form-label">NOMBRE</label>
-                  <input type="text" class="form-control" id="validationCustom01" value="" required>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
                 </div>
                 <div class="col-md-6">
                   <label for="validationCustom02" class="form-label">NOMBRE DE LA DEPENDENCIA</label>
@@ -32,7 +34,7 @@
                   </div>
                   <div class="col-md-6">
                     <label for="validationCustom02" class="form-label">TELEFONO</label>
-                    <input type="text" class="form-control" id="validationCustom04" value="" required>
+                    <input type="text" class="form-control" id="numeroTelefono" value="{{ auth()->user()->numeroTelefono }}" required>
                   </div>
                   <div class="col-md-6">
                     <label for="validationCustom02" class="form-label">JEFE INMEDIATO</label>
@@ -48,7 +50,7 @@
                   </div>
                   <div class="col-md-6">
                     <label for="validationCustom02" class="form-label">FECHA DE SUSPENCION O CANCELACION</label>
-                    <input type="text" class="form-control" id="validationCustom08" value="" required>
+                    <input type="text" class="form-control" id="$now" value="$now" required>
                   </div>
                 
                 <form action="{{url('view/docs/repopresent.php')}}" method="GET">  

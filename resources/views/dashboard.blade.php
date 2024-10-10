@@ -128,7 +128,7 @@
     
         </main> --}}
 
-        <script src="" ></script>
+        <script src="carrusel.js" ></script>
 
         <div class='container'>
             <ul class='carousel is-set'>

@@ -8,6 +8,7 @@ use App\Http\Controllers\EvasersocController;
 use App\Http\Controllers\liberacionController;
 use App\Http\Controllers\RepoactController;
 use App\Http\Controllers\RepropresentController;
+use App\Http\Controllers\RegistroservController;
 
 
 
@@ -25,14 +26,15 @@ Route::middleware([
     })->name('dashboard');
 });
 
+
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/presentacion', [PresentacionController::class, 'create'])->middleware(App::class)->name('presentacion.create');
+    Route::get('/presentacion', [PresentacionController::class, 'create'])->name('presentacion.create');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/repoact', [RepoactController::class, 'create'])->middleware(App::class)->name('repoact.create');
+    Route::get('/repoact', [RepoactController::class, 'create'])->name('repoact.create');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -47,10 +49,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/liberacion', [liberacionController::class, 'create'])->middleware(App::class)->name('liberacion.create');
+    Route::get('/liberacion', [liberacionController::class, 'create'])->name('liberacion.create');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/repropesent', [RepropresentController::class, 'create'])->middleware(App::class)->name('repropesent.create');
 });
+
+Route::middleware(['auth', 'verified'])->group(function () {
+
+    Route::get('/registroservicio', [RegistroservController::class, 'create'])->name('registroserv.create');
+})->name('registroserv');

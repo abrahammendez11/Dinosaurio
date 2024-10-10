@@ -1,14 +1,13 @@
 {{-- <link rel="stylesheet" href="{{ asset('/css/master.css') }}"> --}}
 
-<nav x-data="{ open: false }" class="bg-purple-700 border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
+<nav x-data="{ open: false }" style="background: url('/images/patternColor.jpg')" class="border-b border-gray-100">    <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('images/COSSIES_logo.png') }}" alt="Logo" class="block h-14 w-auto">
+                        <img src="{{ asset('images/COSSIES_logo-light.png') }}" alt="Logo" class="block h-14 w-auto">
                     </a>
                 </div>
 
@@ -19,6 +18,13 @@
                         {{ __('Menu') }}
                     </x-nav-link>
                 </div>
+
+                <button style="background-color: #fdfdfd; color: rgb(5, 5, 5); padding: 3px 10px; font-size: 16px; border-transparent;" type="submit">
+                    <x-nav-link href="{{ route('registroservicio') }}" :active="request()->routeIs('regristroservicio')" class="text-gray-500">
+                        {{ __('Registro a Dependencia') }}
+                    </x-nav-link>
+                </button>
+                
             </div>
 
 

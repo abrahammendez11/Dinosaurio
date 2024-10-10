@@ -15,35 +15,40 @@
         <title>Carta de Presentacion/Aceptacion</title>
     </head>
     <body>
+
+        <div class="p-4">
         <div class="container mt-5">
-            <h2>Formulario de Servicio Social</h2>
+        <h2>FORMULARIO DE SERVICIO SOCIAL</h2>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Nombre del Alumno</span>
-        <input type="text" class="form-control" placeholder="Alumno" aria-label="Username" aria-describedby="basic-addon1">
-      </div>
+        <form class="row g-3 needs-validation" novalidate>
+          <div class="col-md-6">
+            <label for="name" class="form-label">NOMBRE DEL ALUMNO</label>
+            <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
+          </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Grado o Curso</span>
-        <input type="text" class="form-control" placeholder="Curso" aria-label="Grade" aria-describedby="basic-addon1">
-      </div>
+          <div class="col-md-6">
+            <label for="grado" class="form-label">GRADO O CURSO</label>
+            <input type="text" class="form-control" id="grado" value="{{ auth()->user()->grado }}" required>
+          </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Nombre de la Escuela</span>
-        <input type="text" class="form-control" placeholder="Escuela" aria-label="School" aria-describedby="basic-addon1">
-      </div>
+          <div class="col-md-6">
+            <label for="escuela" class="form-label">NOMBRE DE LA ESCUELA</label>
+            <input type="text" class="form-control" id="escuela" value="{{ auth()->user()->escuela }}" required>
+          </div>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Direccion de la Escuela</span>
-        <input type="text" class="form-control" placeholder="DireccionE" aria-label="Address" aria-describedby="basic-addon1">
-      </div>
+          <div class="col-md-6">
+            <label for="direccion" class="form-label">DIRECCION DE LA ESCUELA</label>
+            <input type="text" class="form-control" id="direccion" value="" required>
+          </div>
+        </form>  
+        </div>
 
        <div class="p-4">
         <p>DATOS DE LA DEPENDENCIA</p>
         <form class="row g-3 needs-validation" novalidate>
             <div class="col-md-6">
-              <label for="validationCustom01" class="form-label">DEPENDENCIA</label>
-              <input type="text" class="form-control" id="validationCustom01" value="" required>
+              <label for="nombreDependencia" class="form-label">DEPENDENCIA</label>
+              <input type="text" class="form-control" id="nombreDependencia" value="{{-- {{ auth()->user()->dtcatdependencia->nombreDependencia }} --}}" required>
             </div>
             <div class="col-md-6">
               <label for="validationCustom02" class="form-label">AREA ESPECIFICA</label>
@@ -88,7 +93,7 @@
             
             <form action="{{url('view/docs/repopresent.php')}}" method="GET">  
             <div class="col-12">
-              <button class="btn btn-primary" type="submit">Exportar Documento</button>
+              <button class="btn btn-primary" type="submit">GUARDAR INFORMACION</button>
             </div>
             </form>
           </form>

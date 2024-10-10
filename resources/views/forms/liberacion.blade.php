@@ -15,42 +15,56 @@
     </head>
     <body>
         
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Nombre del Alumno</span>
-            <input type="text" class="form-control" placeholder="Nombre del/la Alumno" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Semestre</span>
-            <input type="text" class="form-control" placeholder="Nombre del/la Alumno" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Nombre de la Escuela</span>
-            <input type="text" class="form-control" placeholder="Nombre de la Institucion Educativa" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Total de Horas</span>
-            <input type="text" class="form-control" placeholder="Horas" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Area de Adscripcion</span>
-            <input type="text" class="form-control" placeholder="Area a la que pertenece" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Nombre del Proyecto</span>
-            <input type="text" class="form-control" placeholder="Nombre del Proyecto" aria-label="Username" aria-describedby="basic-addon1">
-        </div>   
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Nombre de la Dependencia</span>
-            <input type="text" class="form-control" placeholder="Nombre de la Dependencia" aria-label="Username" aria-describedby="basic-addon1">
-        </div> 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Dia de Inicio</span>
-            <input type="text" class="form-control" placeholder="Dia de Inicio" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Dia de Fin</span>
-            <input type="text" class="form-control" placeholder="Dia de Fin" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
+        <div class="p-4">
+        <p><Label>LIBERACION DE SERVICIO SOCIAL</Label></p>
+        <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">NOMBRE</label>
+                <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">SEMESTRE</label>
+                <input type="text" class="form-control" id="grado" value="{{ auth()->user()->grado }}" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">NOMBRE DE LA ESCUELA</label>
+                <input type="text" class="form-control" id="escuela" value="{{ auth()->user()->escuela }}" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">TOTAL DE HORAS</label>
+                <input type="text" class="form-control" id="grado" value="{{ auth()->user()->grado}}" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">AREA DE ADSCRIPCION</label>
+                <input type="text" class="form-control" id="grado" value="{{ auth()->user()->grado }}" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">NOMBRE DEL PROYECTO</label>
+                <input type="text" class="form-control" id="grado" value="{{ auth()->user()->grado }}" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">NOMBRE DEL PROYECTO</label>
+                <input type="text" class="form-control" id="grado" value="{{ auth()->user()->grado }}" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">DIA DE INICIO</label>
+                <input type="text" class="form-control" id="grado" value="{{ auth()->user()->grado }}" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">DIA DE FIN</label>
+                <input type="text" class="form-control" id="grado" value="{{ auth()->user()->grado }}" required>
+            </div>
+
+        </form>
+        </div>    
     </body>
     </html>
 </x-app-layout>
