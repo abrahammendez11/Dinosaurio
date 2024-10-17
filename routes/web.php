@@ -9,12 +9,19 @@ use App\Http\Controllers\liberacionController;
 use App\Http\Controllers\RepoactController;
 use App\Http\Controllers\RepropresentController;
 use App\Http\Controllers\RegistroservController;
+use App\Http\Controllers\LoginAdminController;
+use App\Http\Controllers\RegisterAdminController;
 
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/loginadmin',[LoginAdminController::class,'create'])->name('loginadmin.create');
+
+Route::post('/registeradmin',[RegisterAdminController::class,'create'])->name('registeradmin.create');
+
 
 Route::middleware([
     'auth:sanctum',
@@ -59,5 +66,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/registroservicio', [RegistroservController::class, 'create'])->name('registroserv.create');
+    Route::get('/registroserv', [RegistroservController::class, 'create'])->name('registroserv.create');
 })->name('registroserv');

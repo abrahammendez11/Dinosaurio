@@ -19,12 +19,20 @@
                     </x-nav-link>
                 </div>
 
-                <button style="background-color: #fdfdfd; color: rgb(5, 5, 5); padding: 3px 10px; font-size: 16px; border-transparent;" type="submit">
-                    <x-nav-link href="{{ route('registroservicio') }}" :active="request()->routeIs('regristroservicio')" class="text-gray-500">
+               {{--  <a href="{{ route('registroserv') }}" 
+                   style="background-color: #fdfdfd; color: rgb(5, 5, 5); padding: 3px 10px; font-size: 16px; border: none; text-decoration: none; display: inline-block; border-radius: 4px;" 
+                    class="text-gray-500 {{ request()->routeIs('registroserv') ? 'active' : '' }}">
+                    Registro a Dependencia
+                </a> --}}
+
+
+                {{-- <a>
+               <button style="background-color: #fdfdfd; color: rgb(5, 5, 5); padding: 3px 10px; font-size: 16px; border-transparent;" type="submit">
+                    <x-nav-link href="{{ route('registroserv') }}" :active="request()->routeIs('regristroserv')" class="text-gray-500">
                         {{ __('Registro a Dependencia') }}
                     </x-nav-link>
-                </button>
-                
+               </button>
+                </a> --}}
             </div>
 
 

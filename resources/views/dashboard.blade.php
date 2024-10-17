@@ -16,9 +16,9 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/colors.css') }}">
         <link rel="stylesheet" href="{{ asset('css/master.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/carrusel.css') }}">
         <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="{{ asset('css/carrusel.css') }}">
 
     </head>
     
@@ -128,9 +128,8 @@
     
         </main> --}}
 
-        <script src="carrusel.js" ></script>
-
-        <div class='container'>
+    <div class='curruselMargen'>
+        <div class='wrap'>
             <ul class='carousel is-set'>
               <li class='carousel-seat'>
                 <h2>1</h2>
@@ -153,12 +152,14 @@
             </ul>
           </div>
           <div class='controls'>
-            <button class='toggle' data-toggle='prev'>Prev</button>
-            <button class='toggle' data-toggle='next'>Next</button>
+            <button class='toggle'>Previo</button>
+            <button class='toggle' data-toggle='next'>Siguiente</button>
           </div>
-    
-        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+            
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" crossorigin="anonymous"></script>
+        <script src="{{ asset('js/carrusel.js') }}"></script>
         @stack('scripts')
+    </div>
     </body>
     
     </html>

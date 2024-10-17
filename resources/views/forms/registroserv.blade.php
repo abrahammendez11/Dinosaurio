@@ -16,15 +16,38 @@
     </head>
     <body>
         <div class="p-4">
-            <div class="container mt-5">
-            <h2>REGISTRO A DEPENDENCIAS DE SERVICIO SOCIAL"</h2>
+            <div class="container mt-5 border-spacing: 10px">
+            <h2>REGISTRO A DEPENDENCIAS DE SERVICIO SOCIAL</h2>
     
             <form class="row g-3 needs-validation" novalidate>
+
+              <diV class="container-lg border-spacing-8">
               <div class="col-md-6">
-                <label for="name" class="form-label">NOMBRE DEL ALUMNO  ----  {{auth()->user()->name }}</label>
+                <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
                 <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
               </div>
+              </diV>
 
+                <div class="col-md-6">
+                  <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
+                </div>
+              </diV>  
 
             </form>
             </div>
