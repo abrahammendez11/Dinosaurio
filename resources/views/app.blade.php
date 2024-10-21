@@ -36,7 +36,7 @@
                 </li>
 
                 <li>
-                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-menu-1" data-collapse-toggle="dropdown-menu-1">
+                    <button type="button" class="dropdown-button flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" data-target="dropdown-menu-1">
                         <i class="bi bi-file-earmark-check-fill"></i>
                             <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
                                 Carta Presentacion
@@ -55,7 +55,7 @@
                 </li>
 
                 <li>
-                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-menu-2" data-collapse-toggle="dropdown-menu-2">
+                    <button type="button" class="dropdown-button flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" data-target="dropdown-menu-2">
                         <i class="bi bi-person"></i>
                             <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
                                 Datos de Prestador
@@ -73,7 +73,7 @@
                     </ul>
                 </li>
                 <li>
-                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-menu-3" data-collapse-toggle="dropdown-menu-3">
+                    <button type="button" class="dropdown-button flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" data-target="dropdown-menu-3">
                         <i class="bi bi bi-x-octagon"></i>
                             <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
                                 Formato de Suspencion
@@ -91,7 +91,7 @@
                     </ul>
                 </li>
                 <li>
-                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-menu-4" data-collapse-toggle="dropdown-menu-4">
+                    <button type="button" class="dropdown-button flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" data-target="dropdown-menu-4">
                         <i class="bi bi-person-check-fill"></i>
                             <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
                                 Carta de Liberacion
@@ -123,6 +123,7 @@
         </div>
 
     </main>
+    <script src="{{ asset('js/sidebarLeft.js') }}"></script>
 {{-- 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     @stack('scripts')

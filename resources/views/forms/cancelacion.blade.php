@@ -15,8 +15,6 @@
     </head>
     <body>
       
-     
-
         <div class="p-4">
             <p>SUSPENCION O CANCELACION DE SERVICIO SOCIAL</p>
             <form class="row g-3 needs-validation" novalidate>

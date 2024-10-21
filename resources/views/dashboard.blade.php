@@ -40,7 +40,7 @@
                     </li>
     
                     <li>
-                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-menu-1" data-collapse-toggle="dropdown-menu-1">
+                        <button type="button" class="dropdown-button flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" data-target="dropdown-menu-1">
                             <i class="bi bi-file-earmark-check-fill"></i>
                                 <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
                                     Carta Presentacion
@@ -53,13 +53,14 @@
                         <ul id="dropdown-menu-1" class="hidden py-2 space-y-2">
                             <li>
                                 <a href="{{ route('presentacion.create')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                                    Carta Presentacion/Aceptacion </a>
+                                    Carta Presentacion/Aceptacion 
+                                </a>
                             </li>
                         </ul>
                     </li>
     
                     <li>
-                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-menu-2" data-collapse-toggle="dropdown-menu-2">
+                        <button type="button" class="dropdown-button flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" data-target="dropdown-menu-2">
                             <i class="bi bi-person"></i>
                                 <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
                                     Datos de Prestador
@@ -77,7 +78,7 @@
                         </ul>
                     </li>
                     <li>
-                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-menu-3" data-collapse-toggle="dropdown-menu-3">
+                        <button type="button" class="dropdown-button flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" data-target="dropdown-menu-3">
                             <i class="bi bi bi-x-octagon"></i>
                                 <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
                                     Formato de Suspencion
@@ -95,7 +96,7 @@
                         </ul>
                     </li>
                     <li>
-                        <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-menu-5" data-collapse-toggle="dropdown-menu-5">
+                        <button type="button" class="dropdown-button flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" data-target="dropdown-menu-4">
                             <i class="bi bi-person-check-fill"></i>
                                 <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">
                                     Carta de Liberacion
@@ -105,7 +106,7 @@
                                 </svg>
                         </button>
     
-                        <ul id="dropdown-menu-5" class="hidden py-2 space-y-2">
+                        <ul id="dropdown-menu-4" class="hidden py-2 space-y-2">
                             <li>
                                 <a href="{{ route('liberacion.create')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                                     Carta de Liberacion </a>
@@ -158,6 +159,7 @@
             
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('js/carrusel.js') }}"></script>
+        <script src="{{ asset('js/sidebarLeft.js') }}"></script>
         @stack('scripts')
     </div>
     </body>
