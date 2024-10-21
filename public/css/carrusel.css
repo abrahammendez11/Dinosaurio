@@ -1,4 +1,4 @@
-.curruselMargen {
+curruselMargen {
   margin-top: 10px;
   margin-right: 20px;
   margin-bottom: 50px;
@@ -94,5 +94,5 @@ h2 {
   padding: 0.5em 1em;
 }
 .controls button:hover, .controls button:focus {
-  background: orange;
+  background: #FFA500;
 }

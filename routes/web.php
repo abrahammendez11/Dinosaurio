@@ -20,7 +20,11 @@ Route::get('/', function () {
 
 Route::get('/loginadmin',[LoginAdminController::class,'create'])->name('loginadmin.create');
 
-Route::post('/registeradmin',[RegisterAdminController::class,'create'])->name('registeradmin.create');
+
+Route::get('/registeradmin/create',[RegisterAdminController::class,'create'])->name('registeradmin.create');
+Route::post('/registeradmin',[RegisterAdminController::class,'store'])->name('registeradmin.store');
+
+
 
 
 Route::middleware([

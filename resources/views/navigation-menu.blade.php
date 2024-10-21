@@ -1,44 +1,29 @@
 {{-- <link rel="stylesheet" href="{{ asset('/css/master.css') }}"> --}}
 
-<nav x-data="{ open: false }" style="background: url('/images/patternColor.jpg')" class="border-b border-gray-100">    <!-- Primary Navigation Menu -->
+<nav x-data="{ open: false }" style="background: url('/images/patternColor.jpg')" class="border-b border-gray-100">
+    <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
+        
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+            
+                <div class="absolute left-14 top-1 shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('images/COSSIES_logo-light.png') }}" alt="Logo" class="block h-14 w-auto">
+                      <img src="{{ asset('images/COSSIES_logo-light.png') }}" alt="Logo" class="block h-14 w-auto">
                     </a>
-                </div>
-
-
+                  </div>
+                  
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex text-white">
+                <div class= "absolute left-60 top-7 hidden space-x-8 sm:-my-px sm:ms-10 sm:flex text-white">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="text-white">
                         {{ __('Menu') }}
                     </x-nav-link>
                 </div>
-
-               {{--  <a href="{{ route('registroserv') }}" 
-                   style="background-color: #fdfdfd; color: rgb(5, 5, 5); padding: 3px 10px; font-size: 16px; border: none; text-decoration: none; display: inline-block; border-radius: 4px;" 
-                    class="text-gray-500 {{ request()->routeIs('registroserv') ? 'active' : '' }}">
-                    Registro a Dependencia
-                </a> --}}
-
-
-                {{-- <a>
-               <button style="background-color: #fdfdfd; color: rgb(5, 5, 5); padding: 3px 10px; font-size: 16px; border-transparent;" type="submit">
-                    <x-nav-link href="{{ route('registroserv') }}" :active="request()->routeIs('regristroserv')" class="text-gray-500">
-                        {{ __('Registro a Dependencia') }}
-                    </x-nav-link>
-               </button>
-                </a> --}}
             </div>
 
 
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
-              
-
+            <div class="absolute right-20 top-4 hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Settings Dropdown -->
                 <div class="ms-3 relative">
                     <x-dropdown align="right" width="48">

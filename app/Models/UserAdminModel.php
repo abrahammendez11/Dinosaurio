@@ -25,14 +25,16 @@ class UserAdminModel extends Authenticatable
  * 
  *@var string
  *
- * /
-    protected $table = 'useradmin';
-
-    /**
+ 
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
+
+     protected $table = 'usersadmin';
+
+     
     protected $fillable = [
         'nombre',
         'correo',
