@@ -18,7 +18,7 @@
 
         <div class="p-4">
         <div class="container mt-5">
-        <h2>FORMULARIO DE SERVICIO SOCIAL</h2>
+        <h2>CARTA DE PRESENTACION DE SERVICIO SOCIAL</h2>
 
         <form class="row g-3 needs-validation" novalidate>
           <div class="col-md-6">

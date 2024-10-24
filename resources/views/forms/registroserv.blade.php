@@ -16,13 +16,13 @@
     </head>
     <body>
         <div class="p-4">
-            <div class="container mt-5 border-spacing: 10px">
+            <div class="container mt-5 border-spacing: 10px 15px">
             <h2>REGISTRO A DEPENDENCIAS DE SERVICIO SOCIAL</h2>
     
             <form class="row g-3 needs-validation" novalidate>
 
-              <diV class="container-lg border-spacing-8">
-              <div class="col-md-6">
+              <diV class="container-lg border-spacing-8 15px">
+              <div class="col-md-6 mb-3">
                 <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
                 <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
               </div>
@@ -48,6 +48,16 @@
                   <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
                 </div>
               </diV>  
+
+              <div class="col-md-6">
+                <label for="dependencia" class="form-label"><strong>DEPENDENCIA A REGISTRARSE</strong>
+                <select class="form-select" aria-label="DEPENDENCIA">
+                  <option selected>Dependencia</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>  
 
             </form>
             </div>
