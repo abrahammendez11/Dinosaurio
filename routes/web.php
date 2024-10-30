@@ -11,6 +11,7 @@ use App\Http\Controllers\RepropresentController;
 use App\Http\Controllers\RegistroservController;
 use App\Http\Controllers\LoginAdminController;
 use App\Http\Controllers\RegisterAdminController;
+use App\Http\Controllers\informacioncompController;
 
 
 
@@ -37,6 +38,11 @@ Route::middleware([
     })->name('dashboard');
 }); 
 
+Route::middleware(['auth', 'verified'])->group(function () {
+
+    Route::get('/informacioncomp', [informacioncompController::class, 'create'])->name('informacioncomp.create');
+   /*  Route::get('/registroserv',[informacioncompController::class, 'store']); */
+});
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
@@ -71,4 +77,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/registroserv', [RegistroservController::class, 'create'])->name('registroserv.create');
-})->name('registroserv');
+    Route::post('/registroserv',[RegistroservController::class, 'store'])->name ('registroserv.store');
+});/* ->name('registroserv'); */
