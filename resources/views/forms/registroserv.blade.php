@@ -34,8 +34,8 @@
                 </div>
 
                 <div class="col-md-6">
-                  <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
-                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
+                  <label for="name" class="form-label"><strong>NOMBRE DE LA ESCUELA  {{auth()->user()->escuela }}</strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->escuela }}" required>
                 </div>
 
                 <div class="col-md-6">
@@ -58,6 +58,25 @@
                   <option value="3">Three</option>
                 </select>
               </div>  
+
+              <form action="{{ route('registroserv.store') }}" method="POST">
+                @csrf
+
+                <!-- select para elegir la dependencia -->
+                <div class="form-group">
+                  <label for="ctcatdependencia_id"> Nombre de la dependencia </label>
+                  <select name="ctcatdependencia_id" id="ctcatdependencia_id" class="form-control" required>
+                    <option value="">-- Selecciona una Dependencia --</option>
+                    @foreach ($dependencias as $dependencia)
+                      <opcion value = "{{$dependencia->id}}"> {{dependencia->nombreDependencia}}</opcion> 
+                    @endforeach
+                  </select>
+                  @error('ctcatdependencia_id')
+                      <div class="text-danger">{{$message}}</div>
+                  @enderror  
+                </div>
+
+
 
             </form>
             </div>
