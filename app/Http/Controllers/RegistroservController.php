@@ -20,22 +20,37 @@ class RegistroservController extends Controller
                 ([
                     'ctcatdependencia_id' => 'required|exists:ctcatdependencia,id',
                     'nombreDependencia' => 'required|string|max:50',
-                    'direccionDependencia' => 'nullable|string|max:80',
+                    'correoElectronico' => 'required|string|max:255',
+                    'direccionDependencia' => 'nullable|string|max:255',
                     'telefonoDependencia' => 'nullable|string|max:15',
+                    'areaAdscripcion' => 'nullable|string|max:255',
+                    'nombreJefeInmediato' => 'nullable|string|max:255',
+                    'cargoJefeInmediato' => 'nullable|string|max:255',
+                    'nombreProyecto' => 'nullable|string|max:255',
+                    'fechaInicio' => 'nullable|date',
+                    'fechaFin' => 'nullable|date',
                 ]);
 
-                $nombreDependencia = DB::table('ctcatdependencia')
+                $dependencia = DB::table('ctcatdependencia')
                 ->where('id', $validatedData['ctcatdependencia_id'])
-                ->value('nombreDependencia');
+                ->first(['nombreDependencia', 'correoElectronico', 'numTelefono']);
+                
 
                 DB::table('dtregistrodependencia')->insert([
                     'ctcatdependencia_id' => $validatedData['ctcatdependencia_id'],
-                    'nombreDependencia' => $nombreDependencia,
+                    'nombreDependencia' => $dependencia->nombreDependencia,
+                    'correoElectronico' => $dependencia->correoElectronico,
+                    'telefonoDependencia' => $dependencia->numTelefono,
                     'direccionDependencia' => $validatedData['direccionDependencia'],
-                    'telefonoDependencia' => $validatedData['telefonoDependencia'],
+                    'areaAdscripcion' => $validatedData['areaAdscripcion'],
+                    'nombreJefeInmediato' => $validatedData['nombreJefeInmediato'],
+                    'cargoJefeInmediato' => $validatedData['cargoJefeInmediato'],
+                    'nombreProyecto' => $validatedData['nombreProyecto'],
+                    'fechaInicio' => $validatedData['fechaInicio'],
+                    'fechaFin' => $validatedData['fechaFin'],
                 ]);
 
-                return  redirect()->route('infomacioncomp')->with('success','Informacion guardada correctamente');
+                return redirect()->route('infomacioncomp')->with('success','Informacion guardada correctamente');
         
     }
 }

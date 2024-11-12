@@ -21,65 +21,137 @@
     
             <form class="row g-3 needs-validation" novalidate>
 
-              <diV class="container-lg border-spacing-8 15px">
+              {{-- <diV class="container-lg border-spacing-8 15px">
               <div class="col-md-6 mb-3">
                 <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
                 <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
               </div>
-              </diV>
+              </diV> --}}
 
                 <div class="col-md-6">
-                  <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
-                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
-                </div>
-
-                <div class="col-md-6">
-                  <label for="name" class="form-label"><strong>NOMBRE DE LA ESCUELA  {{auth()->user()->escuela }}</strong></label>
-                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->escuela }}" required>
+                  <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO </strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
-                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
+                  <label for="name" class="form-label"><strong>CORREO DEL ALUMNO </strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->email }}" required readonly>
                 </div>
 
                 <div class="col-md-6">
-                  <label for="name" class="form-label"><strong>NOMBRE DEL ALUMNO  {{auth()->user()->name }}</strong></label>
-                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}" required>
-                </div>
-              </diV>  
-
-              <div class="col-md-6">
-                <label for="dependencia" class="form-label"><strong>DEPENDENCIA A REGISTRARSE</strong>
-                <select class="form-select" aria-label="DEPENDENCIA">
-                  <option selected>Dependencia</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>  
-
-              <form action="{{ route('registroserv.store') }}" method="POST">
-                @csrf
-
-                <!-- select para elegir la dependencia -->
-                <div class="form-group">
-                  <label for="ctcatdependencia_id"> Nombre de la dependencia </label>
-                  <select name="ctcatdependencia_id" id="ctcatdependencia_id" class="form-control" required>
-                    <option value="">-- Selecciona una Dependencia --</option>
-                    @foreach ($dependencias as $dependencia)
-                      <opcion value = "{{$dependencia->id}}"> {{dependencia->nombreDependencia}}</opcion> 
-                    @endforeach
-                  </select>
-                  @error('ctcatdependencia_id')
-                      <div class="text-danger">{{$message}}</div>
-                  @enderror  
+                  <label for="name" class="form-label"><strong>NOMBRE DE LA ESCUELA </strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->escuela }}" required readonly>
                 </div>
 
+                <div class="col-md-6">
+                  <label for="name" class="form-label"><strong>CARRERA DEL ALUMNO  </strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->carrera }}" required readonly>
+                </div>
 
+                <div class="col-md-6">
+                  <label for="name" class="form-label"><strong>GRADO DEL ALUMNO  </strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->grado }}" required readonly>
+                </div>
 
-            </form>
+                <div class="col-md-6">
+                  <label for="name" class="form-label"><strong>NUMERO DE TELEFONO DEL ALUMNO </strong></label>
+                  <input type="text" class="form-control" id="name" value="{{ auth()->user()->numeroTelefono }}" required readonly>
+                </div>
+               
+ 
+
+            <!-- Formulario de Registro -->
+                <form action="{{ route('registroserv.store') }}" method="POST" class="row g-3 needs-validation" novalidate>
+                    @csrf
+
+                    <!-- Select para elegir la dependencia -->
+                    <div class="form-group col-md-6">
+                        <label for="ctcatdependencia_id"><strong>NOMBRE DE LA DEPENDENCIA</strong></label>
+                        <select name="ctcatdependencia_id" id="ctcatdependencia_id" class="form-control" required onchange="fetchDependenciaInfo()">
+                            <option value="">-- Selecciona una Dependencia --</option>
+                            @foreach ($dependencias as $dependencia)
+                                <option value="{{ $dependencia->id }}">{{ $dependencia->nombreDependencia }}</option> 
+                            @endforeach
+                        </select>
+                        @error('ctcatdependencia_id')
+                            <div class="text-danger">{{$message}}</div>
+                        @enderror  
+                    </div>
+
+                    <!-- Dirección de la Dependencia -->
+                <div class="form-group col-md-6">
+                  <label for="correoDependencia" class="form-label"><strong>CORREO DE LA DEPENDENCIA</strong></label>
+                  <input type="text" class="form-control" id="correoDependencia" name="correoElectronico"
+                        value="{{ $dependencia->correoElectronico ?? '' }}" readonly>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="telefonoDependencia" class="form-label"><strong>TELEFONO DE LA DEPENDENCIA </strong></label>
+                  <input type="text" class="form-control" id="telefonoDependencia" name="telefonoDependencia"
+                          value="{{$dependencia->numTelefono ?? ''}}" readonly>
+                </div>
+
+                <script>
+                  function fetchDependenciaInfo()
+                  {
+
+                    //obtener el valor seleciconado del select
+                    const dependenciaId= document.getElementById('ctcatdependencia_id').value;
+
+                    //verificar que se haya seleccionado  una dependencia
+                    if(dependenciaId)
+                    {
+                      //realizar la solicitud en AJAX a la ruta de laravel
+                      fetch('/dependencia/${dependenciaId}')
+                        .then(response => response.json())
+                        .then(data =>
+                          {
+                            //actualizar los campos de correo y telefono con los datos obtenidos
+                            document.getElementById('correoElectronico').value = data.correoElectronico || '';
+                            document.getElementById('telefonoDependencia').value = data.numTelefono || '';
+                          }
+                        )
+                        .catch(error => console.error('');
+                        )
+                    }
+                  }
+                </script>  
+
+                <div class="form-group col-md-6">
+                  <label for="areaAdscripcion" class="form-label"><strong> AREA ADSCRIPCION </strong></label>
+                  <input type="text" class="form-control" id="areaAdscripcion" name="areaAdscripcion" placeholder="(Area a la que ingresaste)" >
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="nombreFejeInmediato" class="form-label"><strong> NOMBRE JEFE INMEDIATO </strong></label>
+                  <input type="text" class="form-control" id="nombreJefeInmediato" name="nombreJefeInmediato" placeholder="Nombre de tu jefe inmediato">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="cargoJefeInmediato" class="form-label"><strong> CARGO JEFE INMEDIATO </strong></label>
+                  <input type="text" class="form-control" id="cargoJefeInmediato" name="cargoJefeInmediato" placeholder="Cargo de tu jefe inmediato" >
+                </div>
+
+                <div class="form-group col-md-6 c-azul">
+                  <label for="fechaInicio"><strong> FECHA DE INICIO </strong><small></small></label>
+                  <input type="date" id="fechaInicio"  name="fechaInicio"  class="sm-form-control">
+                </div>
+
+                <div class="form-group col-md-6 c-azul">
+                  <label for="fechaFin"><strong> FECHA DE FIN </strong><small></small></label>
+                  <input type="date" id="fechaFin"  name="fechaFin"  class="sm-form-control">
+                </div>
+
+                
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                  </div>  
+                  </form>  
             </div>
+
+
+
+        </div>
     </body>
     </html>
 </x-app-layout>
