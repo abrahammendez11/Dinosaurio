@@ -77,9 +77,52 @@
                             <div class="text-danger">{{$message}}</div>
                         @enderror  
                     </div>
+                  
+                    <div class="form-group col-md-6">
+                      <label for="correoDependencia" class="form-label"><strong>CORREO DE LA DEPENDENCIA</strong></label>
+                      <input type="text" class="form-control" id="correoDependencia" name="correoElectronico" readonly>
+                  </div>
+                  
+                  <div class="col-md-6">
+                      <label for="telefonoDependencia" class="form-label"><strong>TELEFONO DE LA DEPENDENCIA </strong></label>
+                      <input type="text" class="form-control" id="telefonoDependencia" name="telefonoDependencia" readonly>
+                  </div>
+
+                  <script>
+
+                    function fetchDependenciaInfo()
+                    {
+                      const dependenciaId = document.getElementById('ctcatdependencia_id').value;
+
+                      if(dependenciaId)
+                        {
+                          fetch(`/registroserv/${dependenciaId}`)
+                            .then(response => 
+                            {
+                                  if(!response.ok)
+                                  {
+                                    throw new Error('Network response was not ok ' + response.statusText');
+                                  }
+                                  return response.json();
+                            })      
+                            .then(data =>
+                              {
+                                document.getElementById('correoDependencia').value = data.correoElectronico || '';
+                                document.getElementById('telefonoDependencia').value = data.telefonoDependencia || '';
+                              })
+                            .catch(error => console.error('Error: ',error));       
+                        }
+                        else
+                        {
+                          document.getElementById('correoDependencia').value = '';
+                          document.getElementById('telefonoDependencia').value = '';
+                        }
+                    }
+
+                  </script>
 
                     <!-- Dirección de la Dependencia -->
-                <div class="form-group col-md-6">
+          {{--       <div class="form-group col-md-6">
                   <label for="correoDependencia" class="form-label"><strong>CORREO DE LA DEPENDENCIA</strong></label>
                   <input type="text" class="form-control" id="correoDependencia" name="correoElectronico"
                         value="{{ $dependencia->correoElectronico ?? '' }}" readonly>
@@ -90,32 +133,8 @@
                   <input type="text" class="form-control" id="telefonoDependencia" name="telefonoDependencia"
                           value="{{$dependencia->numTelefono ?? ''}}" readonly>
                 </div>
-
-                <script>
-                  function fetchDependenciaInfo()
-                  {
-
-                    //obtener el valor seleciconado del select
-                    const dependenciaId= document.getElementById('ctcatdependencia_id').value;
-
-                    //verificar que se haya seleccionado  una dependencia
-                    if(dependenciaId)
-                    {
-                      //realizar la solicitud en AJAX a la ruta de laravel
-                      fetch('/dependencia/${dependenciaId}')
-                        .then(response => response.json())
-                        .then(data =>
-                          {
-                            //actualizar los campos de correo y telefono con los datos obtenidos
-                            document.getElementById('correoElectronico').value = data.correoElectronico || '';
-                            document.getElementById('telefonoDependencia').value = data.numTelefono || '';
-                          }
-                        )
-                        .catch(error => console.error('');
-                        )
-                    }
-                  }
-                </script>  
+ --}}
+              
 
                 <div class="form-group col-md-6">
                   <label for="areaAdscripcion" class="form-label"><strong> AREA ADSCRIPCION </strong></label>

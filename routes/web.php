@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PresentacionController;
 use App\Http\Controllers\CancelacionController;
-use App\Http\Controllers\EvasersocController;
+use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\liberacionController;
 use App\Http\Controllers\RepoactController;
 use App\Http\Controllers\RepropresentController;
@@ -59,10 +59,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/cancelacion', [CancelacionController::class, 'create'])->name('cancelacion.create');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+/* Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/evaluacion', [EvasersocController::class, 'create'])->middleware(App::class)->name('evasersoc.create');
-});
+    Route::get('/evasersoc', [EvaluacionController::class, 'create'])->middleware(App::class)->name('.store');
+}); */
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
@@ -78,4 +78,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/registroserv', [RegistroservController::class, 'create'])->name('registroserv.create');
     Route::post('/registroserv',[RegistroservController::class, 'store'])->name ('registroserv.store');
+    Route::get('/registroserv/{id}', [RegistroservController::class, 'store'])->name('registroserv.store');
+
 });/* ->name('registroserv'); */
+
+// Rutas POST para enviar datos
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::match(['get','post'],'/evaluacion', [EvaluacionController::class, 'store'])->name('evaluacion.store');
+});
